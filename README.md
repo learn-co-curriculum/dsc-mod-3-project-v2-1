@@ -6,7 +6,7 @@ Local children pump ground water in the Mara River Basin, Tanzania. © Ana Lemos
 
 ## Goals and Overview
 
-Tanzania is a developing country with a large demand for water. Because of this waterpoints have been established all across the country. Many of these pumps are non-functional or need repairing. It is crucial to be able to determine when a pump might need a replacement or repair so that the people who rely on these waterpoints are safe. The goal of this project was to use real data to construct a model using ensemble methods that could, as accurately as possible, predict the functionality status of water pumps in Tanzania based on select features.
+Tanzania is a developing country with a large demand for water. Because of this demand, waterpoints have been established all across the country. Many of these pumps are non-functional or need repairing. It is crucial to be able to determine when a pump might need replacement or repair so that the people who rely on these waterpoints are safe. The goal of this project was to use real data to construct a model using ensemble methods that could, as accurately as possible, predict the functionality status of water pumps in Tanzania based on select features.
 
 
 # Importing and First Impressions
@@ -20,7 +20,7 @@ The testsetvalue.csv dataset contained the data we would then use our model on t
 
 # Data Cleaning
 
-To explore and manipulate the data appropriately, the data first needed to be cleaned. The data was first checked for duplicates of which, none were found and then NaNs were tackled. 
+To explore and manipulate the data appropriately, the data needed to be cleaned. The data was first checked for duplicates of which, none were found and then NaNs were tackled. 
 
 ![](images/cols.JPG)
 
@@ -35,7 +35,9 @@ First I checked the Value Counts for the Pump Status of the training set:
 ![](images/status.JPG)
 
 Functional: 54.3%
+
 Non-Functional: 38.4%
+
 Functional Needs Repair: 7.3%
 
 ## Question 1: Do payment plans have any effect on pump functionality?
@@ -44,7 +46,7 @@ Functional Needs Repair: 7.3%
 
 ### Conclusion 1:
 
-From the data, it can be observed that pumps that are never paid for tend to have more non-functional pumps. The unknown category is likely to be more pumps that are never paid, based on the similarity of pump functionality distribution. Finally, it seems that those that pay in planned time increments tend to have less non-functional pumps than those that are paid for by quantity or failure.
+From the data, it can be observed that pumps that are never paid for tend to have more non-functional pumps. The unknown category is likely to be pumps that have not been paid for, based on the similarity of pump functionality distribution. Finally, it seems that those that pay in planned time increments tend to have less non-functional pumps than those that are paid for by quantity or failure.
 
 ## Question 2: How does the age of a well relate to it's functionality?
 
@@ -94,7 +96,7 @@ The models were both tuned for which hyperparameters would allow for the greates
 
 ![](images/report.JPG)
 
-These models did not account for class imbalance. Using SMOTE, the data was resampled so that each category of pump functionality were equally represented and the models were trained on this transformed data, improving the results of the models as shown in the classification report below:
+These models did not account for class imbalance. Using SMOTE, the data was resampled so that each category of pump functionality were equally represented and the models were trained on this transformed data, improving the results of the models in terms of class bias as shown in the classification report below:
 
 ![](images/smotereport.JPG)
 
